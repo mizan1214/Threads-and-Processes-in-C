@@ -1,33 +1,22 @@
 # Threads-and-Processes-in-C
 
-This repository demonstrates the performance and behavior differences between **processes** and **threads** in C using `fork()` and `pthread`.
+# 🧵 Thread vs 👥 Process Performance Comparison (Windows, C)
 
----
+This repository contains a simple, Windows-compatible C demo that compares the performance of creating **threads** vs **processes**, using realistic CPU-bound tasks (math operations).
 
-## 📌 Objective
+## 🔧 Files Included
 
-Compare the time efficiency of:
-- Process creation using `fork()`
-- Thread creation using `pthread_create()`
+- `process_thread_comparison.c`: The main program that:
+  - Runs 5 child processes 
+  - Runs 5 threads 
+  - Measures and prints total execution time for both
 
----
+- `child_basic.c`: The program each child process runs. Performs CPU-heavy math work.
 
-## 🧠 Key Concepts
+## 🚀 How to Compile
 
-- Processes vs Threads
-- Overhead of process creation
-- Lightweight nature of threads
-- Parallel execution benefits
-
----
-
-## 💡 Sample Output
+You need a C compiler (like `gcc` via MinGW) on Windows. Open your terminal or command prompt and run:
 
 ```bash
-🔍 Comparing Fork vs Thread (sleep task)
-
-🔹 Running with fork():
-⏱️ Time (fork): 5.0012 sec
-
-🔸 Running with pthread:
-⏱️ Time (thread): 1.0011 sec
+gcc child_basic.c -o child_basic.exe -lm
+gcc process_thread_comparison.c -o demo_compare.exe -lm
